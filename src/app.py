@@ -5,7 +5,7 @@ from db_utils import db_cm
 
 
 app = Flask(__name__)
-app.secret_key = "laghiy3474yhjhp8l03cl4"
+app.secret_key = "secret_key_placeholder"
 
 
 @app.get("/")
