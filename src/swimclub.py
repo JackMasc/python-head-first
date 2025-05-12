@@ -1,10 +1,7 @@
 import statistics
 import json
 from db_utils import db_cm
-
-DATA_FOLDER = "../chapter-2/swimdata/"
-CHARTS_FOLDER = "charts"
-JSON_DATA = "records.json"
+from utils_records import JSON_DATA
 
 
 def read_swim_data(name, age, distance, stroke, date):

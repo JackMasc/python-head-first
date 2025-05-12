@@ -1,12 +1,14 @@
 import DBcm
 import os
-from swimclub import DATA_FOLDER
+from db_utils.db_cm import DB_DETAILS
+
+
+DATA_FOLDER = "swimdata/session1/"
+DB_DETAILS = "db_sqlite/SwimDB.sqlite3"
 
 
 files = os.listdir(DATA_FOLDER)
 files.remove(".DS_Store")
-
-db_details = "SwimDB.sqlite3"
 
 SQL_INSERT_SWIMMER = """
     insert into swimmers
@@ -54,7 +56,7 @@ SQL_INSERT_TIME = """
 """
 
 
-with DBcm.UseDatabase(db_details) as db:
+with DBcm.UseDatabase(DB_DETAILS) as db:
     for file_name in files:
         name, age, distance, stroke = file_name.removesuffix(".txt").split("-")
 
