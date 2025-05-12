@@ -1,0 +1,1 @@
+print(f"hello, im {__name__}")

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    {% for bar_width, time in times_zip %}
+        <svg height="30" width="400">
+            <rect height="30" width="{{bar_width}}" />
+        </svg>{{time}}<br />
+    {% endfor %}
+    
+    <p>Average time: {{average}}</p>
+    <p>M: {{record_times[0]}}, ({{record_times[1]}})</p>
+    <p>W: {{record_times[2]}}, ({{record_times[3]}})</p>
+    
+
+
+{% endblock %}
