@@ -1,3 +1,4 @@
+DBcm==3.0.5
 Flask==3.1.0
 gazpacho==1.1
 lxml==5.3.0
