@@ -7,13 +7,13 @@ SQL_SWIMMERS_BY_SESSION = """
     from swimmers
     join times on times.swimmer_id = swimmers.id
     where date(times.ts) = ?
-    order by swimmers.name; 
+    order by swimmers.name;
 """
 
 SQL_SWIMMERS_EVENTS_BY_SESSION = """
     select distinct events.distance, events.stroke
     from swimmers, events, times
-    where 
+    where
     swimmers.name = ? and
     swimmers.age = ? and
     date(times.ts) = ? and

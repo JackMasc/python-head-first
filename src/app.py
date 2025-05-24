@@ -1,6 +1,5 @@
 from flask import Flask, session, render_template, request
 import swimclub
-import os
 from db_utils import db_cm
 
 
@@ -48,7 +47,7 @@ def get_swimmers_files():
     events_cleaned = [f"{distance}-{stroke}" for (distance, stroke) in events]
     return render_template(
         "select.html",
-        title=f"Choose event for {session["name"]}-{session["age"]} on {session["date"]}",
+        title=f"Choose event for {session['name']}-{session['age']} on {session['date']}",
         url="/chart",
         select_id="event",
         data=events_cleaned,
@@ -64,7 +63,7 @@ def show_bar_chart():
     )
     record_times = swimclub.get_event_records(distance, stroke)
     times_normalized = swimclub.normalize_times_converted(times_converted, 350)
-    title = f"{session["name"]} {session["age"]} {distance} {stroke} {session["date"]}"
+    title = f"{session['name']} {session['age']} {distance} {stroke} {session['date']}"
     times_zip = zip(reversed(times_normalized), reversed(times_array))
     return render_template(
         "chart.html",

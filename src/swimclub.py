@@ -1,7 +1,9 @@
 import statistics
 import json
 from db_utils import db_cm
-from utils_records import JSON_DATA
+
+
+JSON_DATA = "swimdata/records.json"
 
 
 def read_swim_data(name, age, distance, stroke, date):
@@ -57,11 +59,12 @@ def get_event_records(distance, stroke):
     converted_event = f"{distance} {conversions[stroke]}"
 
     with open(JSON_DATA) as file:
-        records = json.load(file)
+        records: dict[str, dict] = json.load(file)
     COURSES = ("SC Men", "LC Men", "SC Women", "LC Women")
     record_times = []
     for course in COURSES:
-        record_times.append(records[course][converted_event])
+        record = records[course].setdefault(converted_event, 'udefined')
+        record_times.append(record)
     return record_times
 
 

@@ -2,7 +2,7 @@ import DBcm
 from db_utils import queries
 
 
-DB_DETAILS = "db_sqlite/SwimDB.sqlite3"
+DB_DETAILS = "db_utils/SwimDB.sqlite3"
 
 
 def get_swim_sessions():
